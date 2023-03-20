@@ -1,1 +1,39 @@
+@import './variables.scss';
 @import url('./null.css');
+
+.container{
+  max-width: 1190px;
+  padding: 0 10px;
+  margin: 0 auto;
+}
+
+.text-sm {
+  font-size: 1rem;
+}
+
+.text-md {
+  font-size: 1.25rem;
+}
+
+.text-lg {
+  font-size: 1.5rem;
+}
+
+.text-xl {
+  font-size: 1.75rem;
+}
+
+.text-xxl {
+  font-size: 2rem;
+}
+
+.text-hover {
+  color: $clr-rich-black;
+  transition: color .3s ease-in-out;
+  cursor: pointer;
+
+  &:hover {
+    color: $clr-orange;
+    // font-size: 2rem;
+  }
+}

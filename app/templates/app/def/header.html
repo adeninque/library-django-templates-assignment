@@ -1,1 +1,20 @@
-<h1>Header</h1>
+<header class="header">
+  <div class="container">
+    <div class="header__body">
+      <h1 class="header__logo logo text-xxl"><span>Ez</span><p>Libra</p></h1>
+      <nav class="header__nav nav">
+        {% for m in menu %}
+        <a href="{% url m.url %}" class="nav__link text-md text-hover">{{ m.name }}</a>
+        {% endfor %}
+        {% if request.user.is_authenticated %} <a class="nav__link text-md text-hover" href="{% url 'addBook' %}"> Add </a> {% endif %}
+      </nav>
+      <div class="header__auth auth">
+        {% if request.user.is_authenticated %}
+          <p class="auth__user">{{ request.user.username }} | <a href="{% url 'logout' %}">Log Out</a></p>
+          {% else %}
+          <p class="auth__user"><a href="{% url 'login' %}">Log In</a> | <a href="{% url 'register' %}">Sign In</a></p>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+</header>

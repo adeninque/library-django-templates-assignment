@@ -1,0 +1,75 @@
+@import './variables.scss';
+
+.header {
+
+  &__body {
+    display: grid;
+    grid-template: [start] 'logo nav auth' 1fr [row-end] / 3fr 6fr 3fr;
+    padding: 1rem 0;
+    align-items: center;
+  }
+
+  &__logo {
+    grid-area: logo;
+    text-transform: uppercase;
+    font-weight: 700;
+    
+    :not(span) {
+      color: $clr-quartz;
+      display: inline;
+    }
+  }
+
+  &__nav {
+    grid-area: nav;
+    place-self: center;
+  }
+
+  &__auth {
+    grid-area: auth;
+    justify-self: right;
+  }
+}
+
+.logo {
+}
+
+.nav {
+
+  &__link {
+    text-transform: uppercase;
+    margin: 0 .5rem 0 0;
+    font-weight: 500;
+    color: $clr-rich-black;
+
+    &:last-child{
+      margin: 0;
+    }
+  }
+}
+.auth {
+
+  &__user {
+    text-transform: uppercase;
+  }
+}
+
+
+@media screen and (width < 640px) {
+  .header {
+    
+    &__body {
+      grid-template: [start] 'logo auth' [row2] 'nav nav' auto [row-end] / 1fr 1fr;
+      gap: .5rem;
+    }
+  }
+
+  .nav {
+    background-color: black;
+    width: 100%;
+    padding: .5rem;
+    &__link {
+      color: $clr-white;
+    }
+  }
+}

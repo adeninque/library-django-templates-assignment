@@ -1,1 +1,36 @@
 @import url("./null.css");
+.container {
+  max-width: 1190px;
+  padding: 0 10px;
+  margin: 0 auto;
+}
+
+.text-sm {
+  font-size: 1rem;
+}
+
+.text-md {
+  font-size: 1.25rem;
+}
+
+.text-lg {
+  font-size: 1.5rem;
+}
+
+.text-xl {
+  font-size: 1.75rem;
+}
+
+.text-xxl {
+  font-size: 2rem;
+}
+
+.text-hover {
+  color: #0D0C1D;
+  -webkit-transition: color 0.3s ease-in-out;
+  transition: color 0.3s ease-in-out;
+  cursor: pointer;
+}
+.text-hover:hover {
+  color: #e69d58;
+}

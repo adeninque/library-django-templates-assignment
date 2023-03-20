@@ -1,9 +1,22 @@
 {% extends 'app/base.html' %}
+{% load static %}
 
-{% block template_styles %} <link rel="stylesheet" href="{% static 'app/css/form.css' %}"> {% endblock template_style %}
+{% block template_styles %} <link rel="stylesheet" href="{% static 'app/css/form.css' %}"> {% endblock template_styles %}
 
 {% block content %}
 <div class="wrapper">
-
+  <div class="container">
+    <form class="form" method="POST" enctype="multipart/form-data">
+      {% csrf_token %}
+      {% for field in form %}
+      <p class="form__field">
+        <label for="{{ field.id_for_label }}" class="form__label">{{ field.label }}</label>
+        {{ field }}
+        <p class="form__errors">{{ field.errors }}</p>
+      </p>
+      {% endfor %}
+      <button class="form__btn text-lg" type="submit">submit</button>
+    </form>
+  </div>
 </div>
 {% endblock content %}

@@ -1,3 +1,45 @@
+@import './variables.scss';
+
+.wrapper {
+}
 .form {
-  background-color: aqua;
+
+  > * {
+    margin: 0 0 1rem 0;
+  }
+		&__field {
+      > * {
+        display: block;
+      }
+		}
+
+		&__label {
+      margin: 0 0 .5rem 0;
+		}
+
+		&__errors {
+		}
+
+		&__btn {
+      width: 100%;
+      padding: 1rem;
+      font-weight: 700;
+      text-align: center;
+      text-transform: uppercase;
+		}
+
+    &__input {
+      border: 1px $clr-rich-black solid;
+      padding: .5rem;
+      width: 100%;
+      font-size: 1.25rem;
+
+      option {
+        padding: .5rem;
+
+        &:nth-child(odd) {
+          background-color: $clr-white-2;
+        }
+      }
+    }
 }
