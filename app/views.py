@@ -1,7 +1,7 @@
 from django.forms import BaseModelForm
 from django.http import HttpResponse
 from django.shortcuts import redirect, render
-from django.views.generic import TemplateView, CreateView, DeleteView, UpdateView
+from django.views.generic import TemplateView, CreateView, DeleteView, UpdateView, ListView
 from django.contrib.auth.views import LoginView
 from django.contrib.auth import logout, login
 from django.contrib.auth.mixins import LoginRequiredMixin
@@ -12,15 +12,23 @@ from .utils import DataMixin
 from .forms import (AddBook,
                     CreateUserForm,
                     AuthUserForm)
+from .models import (Book,
+                     Publisher,
+                     Author)
 
 # Create your views here.
-class Home(DataMixin, TemplateView):
+class Home(DataMixin, ListView):
   template_name = 'app/home.html'
+  context_object_name = 'books'
+  model = Book
   
   def get_context_data(self, **kwargs):
     context = super().get_context_data(**kwargs)
     context.update(self.get_extra_context())
     return context
+  
+  # def get_queryset(self):
+  #   return  
   
 
 class PublishBook(DataMixin, LoginRequiredMixin ,CreateView):
