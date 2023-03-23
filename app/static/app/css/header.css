@@ -1,17 +1,10 @@
 .header__body {
-  display: -ms-grid;
   display: grid;
-  -ms-grid-rows: 1fr;
-  -ms-grid-columns: 3fr 6fr 3fr;
-      grid-template: [start] "logo nav auth" 1fr [row-end]/3fr 6fr 3fr;
+  grid-template: [start] "logo nav auth" 1fr [row-end]/3fr 6fr 3fr;
   padding: 1rem 0;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  align-items: center;
 }
 .header__logo {
-  -ms-grid-row: 1;
-  -ms-grid-column: 1;
   grid-area: logo;
   text-transform: uppercase;
   font-weight: 700;
@@ -21,19 +14,12 @@
   display: inline;
 }
 .header__nav {
-  -ms-grid-row: 1;
-  -ms-grid-column: 2;
   grid-area: nav;
-  -ms-grid-row-align: center;
-  -ms-grid-column-align: center;
   place-self: center;
 }
 .header__auth {
-  -ms-grid-row: 1;
-  -ms-grid-column: 3;
   grid-area: auth;
-  -ms-grid-column-align: right;
-      justify-self: right;
+  justify-self: right;
 }
 
 .nav__link {
@@ -52,9 +38,7 @@
 
 @media screen and (width < 640px) {
   .header__body {
-    -ms-grid-rows: auto 0.5rem auto;
-    -ms-grid-columns: 1fr 0.5rem 1fr;
-        grid-template: [start] "logo auth" [row2] "nav nav" auto [row-end]/1fr 1fr;
+    grid-template: [start] "logo auth" [row2] "nav nav" auto [row-end]/1fr 1fr;
     gap: 0.5rem;
   }
   .nav {
@@ -64,18 +48,5 @@
   }
   .nav__link {
     color: #ffffff;
-  }
-  .header__logo {
-    -ms-grid-row: 1;
-    -ms-grid-column: 1;
-  }
-  .header__nav {
-    -ms-grid-row: 3;
-    -ms-grid-column: 1;
-    -ms-grid-column-span: 3;
-  }
-  .header__auth {
-    -ms-grid-row: 1;
-    -ms-grid-column: 3;
   }
 }

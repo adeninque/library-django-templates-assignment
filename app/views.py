@@ -31,15 +31,18 @@ class Home(DataMixin, ListView):
   #   return  
   
 
-class PublishBook(DataMixin, LoginRequiredMixin ,CreateView):
+class PublishBook(DataMixin ,CreateView):
   form_class = AddBook
   template_name = 'app/form.html'
   success_url = reverse_lazy('home')
-  login_url = reverse_lazy('login')
+  # login_url = reverse_lazy('login')
   
   def form_valid(self, form: BaseModelForm) -> HttpResponse:
     form.instance.publisher = self.request.user
     return super().form_valid(form)
+    # print(form.data)
+    # print(self.request.user)
+    return redirect('addBook')
   
   def get_context_data(self, **kwargs):
     context = super().get_context_data(**kwargs)

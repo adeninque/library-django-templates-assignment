@@ -27,7 +27,6 @@
 
 .text-hover {
   color: #0D0C1D;
-  -webkit-transition: color 0.3s ease-in-out;
   transition: color 0.3s ease-in-out;
   cursor: pointer;
 }
