@@ -1,7 +1,7 @@
 {% extends 'app/base.html' %}
 {% load static %}
 
-{% block template_styles %} <link rel="stylesheet" href="{% static 'app/css/form.css' %}"> {% endblock template_styles %}
+{% block template_styles %} <link rel="stylesheet" href="{% static 'app/css/addbook.css' %}"> {% endblock template_styles %}
 
 {% block content %}
 <div class="wrapper">
@@ -15,7 +15,7 @@
         <p class="form__errors">{{ field.errors }}</p>
       </p>
       {% endfor %}
-      <button class="form__btn text-lg" type="submit">submit</button>
+      <button class="form__btn text-lg btn-hover" type="submit">submit</button>
     </form>
   </div>
 </div>

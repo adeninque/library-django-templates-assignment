@@ -37,3 +37,10 @@
     // font-size: 2rem;
   }
 }
+
+.btn-hover {
+  transition: all .3s ease-in-out;
+  &:hover {
+    filter: invert(100);
+  }
+}

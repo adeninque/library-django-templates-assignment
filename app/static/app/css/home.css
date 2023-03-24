@@ -1,0 +1,37 @@
+.home__body > * {
+  margin: 1rem 0 0 0;
+}
+.books {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(161px, 1fr));
+  gap: 1rem;
+}
+.book {
+  padding: 0.5rem;
+  border: #0D0C1D 1px solid;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.book > * {
+  margin: 1rem 0 0 0;
+}
+.book > *:first-child {
+  margin: 0;
+}
+.book__img {
+  width: 100%;
+  background-position: 50% 50%;
+  background-size: cover;
+}
+.book__img::after {
+  display: block;
+  content: "";
+  padding: 80% 0;
+}
+.book__detail {
+  width: 100%;
+  background-color: #161B33;
+  color: #ffffff;
+  padding: 1rem;
+}

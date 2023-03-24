@@ -1,0 +1,63 @@
+@import url('base.css');
+@import './variables.scss';
+
+.wrapper {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+.fs {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  > * {
+    flex: 1 0 auto;
+  }
+}
+
+.container {
+  max-width: 800px;
+}
+
+.form {
+  box-shadow: $style-shadow;
+  padding: 1rem;
+  margin: 1rem 0 0 0;
+    > * {
+      margin: 1rem 0 0 0;
+
+      &:nth-child(2) {
+        margin: 0;
+      }
+    }
+
+		&__field {
+      display: flex;
+      flex-direction: column;
+		}
+
+		&__label {
+		}
+
+    &__input {
+      border: 1px $clr-rich-black solid;
+      margin: .5rem 0 0 0;
+      padding: .5rem;
+    }
+
+		&__errors {
+		}
+
+		&__btn {
+      width: 100%;
+      background-color: $clr-rich-black;
+      color: $clr-white;
+      padding: .5rem;
+		}
+
+		&__options {
+		}
+}
+
+.gohome {
+}

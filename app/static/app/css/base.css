@@ -33,3 +33,10 @@
 .text-hover:hover {
   color: #e69d58;
 }
+
+.btn-hover {
+  transition: all 0.3s ease-in-out;
+}
+.btn-hover:hover {
+  filter: invert(100);
+}

@@ -7,8 +7,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" type="text/css" href="{% static 'app/css/base.css' %}">
   <link rel="stylesheet" type="text/css" href="{% static 'app/css/header.css' %}">
-  <title>{% if title %} {{ title }} {% else %} Libra {% endif %}</title>
   {% block template_styles %}{% endblock template_styles %}
+  <title>{% if title %} {{ title }} {% else %} Libra {% endif %}</title>
 </head>
 <body>
   {% include 'app/def/header.html' %}

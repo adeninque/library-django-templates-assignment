@@ -64,22 +64,19 @@ class AddBook(forms.ModelForm):
   
   
 class CreateUserForm(UserCreationForm):
+  username = forms.CharField(widget=TextInput())
+  email = forms.EmailField(widget=EmailInput())
+  password1 = forms.CharField(widget=PasswordInput(), label='Password')
+  password2 = forms.CharField(widget=PasswordInput(), label='Password Confirmation')
+  
   class Meta:
     model = Publisher
     fields = ('username', 'email', 'password1', 'password2')
-    widgets = {
-      'username': TextInput(),
-      'email': EmailInput(),
-      'password1': PasswordInput(),
-      'password2': PasswordInput(),
-    }
   
   
 class AuthUserForm(AuthenticationForm):
+  username = forms.CharField(widget=TextInput())
+  password = forms.CharField(widget=PasswordInput())
   class Meta:
     model = Publisher
     fields = ('username', 'password')
-    widgets = {
-      'username': TextInput(),
-      'password': PasswordInput(),
-    }
