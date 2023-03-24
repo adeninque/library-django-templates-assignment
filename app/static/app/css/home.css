@@ -27,10 +27,12 @@
 .book__img::after {
   display: block;
   content: "";
-  padding: 80% 0;
+  padding: 75% 0;
 }
 .book__detail {
+  display: block;
   width: 100%;
+  text-align: center;
   background-color: #161B33;
   color: #ffffff;
   padding: 1rem;

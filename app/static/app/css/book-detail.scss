@@ -1,0 +1,85 @@
+@import './variables.scss';
+
+.book {	
+		&_option {
+		}
+
+		&__header {
+			display: grid;
+			grid-template-columns: 3fr 9fr;
+			gap: 1rem;
+		}
+
+		&__img {
+			width: 100%;
+			background-position: 50% 50%;
+			background-size: cover;
+			
+			&::after {
+				content: '';
+				display: block;
+				padding: 75% 0;
+			}
+		}
+
+		&__desc {
+			display: flex;
+			flex-direction: column;
+			justify-content: space-between;
+		}
+
+		&__inf {
+		}
+
+		&__title {
+		}
+
+		&__authors {
+			margin: .5rem 0 0 0;
+		}
+
+		&____author {
+		}
+
+		&__options {
+			display: grid;
+			grid-template-columns: 1fr 1fr;
+			margin: 1rem 0 0 0;
+			gap: .5rem;
+		}
+
+		&__delete {
+			background-color: $clr-red;
+		}	
+
+		&__option {
+			padding: .5rem;
+			width: 100%;
+			text-align: center;
+			transition: all .3s ease-in-out;
+			color: $clr-white;
+			font-weight: 500;
+
+			&:hover {
+				background-color: $clr-rich-black;
+				color: $clr-white;
+			}
+		}
+
+		&__edit {
+			background-color: $clr-orange;
+		}
+
+		&__body {
+			margin: 1rem 0 0 0;
+		}
+}
+
+
+@media screen and (width < 440px) {
+	.book {
+		&__header {
+			grid-template-columns: 1fr;
+		}
+	}
+}

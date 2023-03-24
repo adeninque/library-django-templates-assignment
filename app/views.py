@@ -1,7 +1,12 @@
 from django.forms import BaseModelForm
 from django.http import HttpResponse
 from django.shortcuts import redirect, render
-from django.views.generic import TemplateView, CreateView, DeleteView, UpdateView, ListView
+from django.views.generic import (TemplateView,
+                                  CreateView,
+                                  DeleteView,
+                                  UpdateView,
+                                  ListView,
+                                  DetailView,) 
 from django.contrib.auth.views import LoginView
 from django.contrib.auth import logout, login
 from django.contrib.auth.mixins import LoginRequiredMixin
@@ -31,6 +36,22 @@ class Home(DataMixin, ListView):
   #   return  
   
 
+class BookDetail(DataMixin, DetailView):
+  model = Book
+  template_name = 'app/book-detail.html'
+  context_object_name = 'book'
+  
+  def get_context_data(self, **kwargs):
+    context = super().get_context_data(**kwargs)
+    context.update(
+      self.get_extra_context(
+        title = context['book'].title,
+        is_publisher = self.request.user == context['book'].publisher
+      )
+    )
+    return context
+
+
 class PublishBook(DataMixin, LoginRequiredMixin ,CreateView):
   form_class = AddBook
   template_name = 'app/addbook.html'
@@ -51,6 +72,33 @@ class PublishBook(DataMixin, LoginRequiredMixin ,CreateView):
     ))
     return context
 
+
+class EditBook(DataMixin, UpdateView):
+  model = Book
+  form_class = AddBook
+  template_name = 'app/addbook.html'
+  context_object_name = 'book'
+  
+  def get_context_data(self, **kwargs):
+    context = super().get_context_data(**kwargs)
+    context.update(self.get_extra_context(
+      title = f'Edit Book {context["book"].title}'
+    ))
+    return context
+
+
+class DeleteBook(DataMixin, DeleteView):
+  model = Book
+  success_url = reverse_lazy('home')
+  template_name = 'app/book-delete.html'
+  context_object_name = 'book'
+
+  def get_context_data(self, **kwargs):
+    context = super().get_context_data(**kwargs)
+    context.update(self.get_extra_context(
+      title = f'Delete? {context["book"].title}'
+    ))
+    return context
 
 class RegPublisher(DataMixin, CreateView):
   form_class = CreateUserForm

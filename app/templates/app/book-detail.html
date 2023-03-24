@@ -1,0 +1,33 @@
+{% extends "app/base.html" %}
+{% load static %}
+
+{% block template_styles %}
+<link rel="stylesheet" href="{% static 'app/css/book-detail.css' %}">
+{% endblock template_styles %}
+
+{% block content %}
+<div class="container">
+  <div class="book">
+    <div class="book__header">
+      <div class="book__img" style="background-image: url('{{ book.cover.url }}');"></div>
+      <div class="book__desc">
+        <div class="book__inf">
+          <h2 class="book__title text-xxl">{{ book.title }}</h2>
+          <ul class="book__authors">
+            {% for author in book.author.all %}
+            <li class="book__author">{{ author.name }}</li>
+            {% endfor %}
+          </ul>
+        </div>
+        <div class="book__options">
+          {% if is_publisher %}
+            <a href="{{ book.get_edit_url }}" class="book__option book__edit ">Edit</a>
+            <a href="{{ book.get_delete_url }}" class=" book__option book__delete ">Delete</a>
+          {% endif %}
+        </div>
+      </div>
+    </div>
+    <h1 class="book__body text-md">{{ book.body }}</h1>
+  </div>
+</div>
+{% endblock content %}

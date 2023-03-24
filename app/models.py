@@ -1,5 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import AbstractUser, PermissionsMixin
+from django.urls import reverse_lazy
 
 # Create your models here.
 class Book(models.Model):
@@ -11,6 +12,12 @@ class Book(models.Model):
   publisher = models.ForeignKey('Publisher', on_delete=models.CASCADE)
 
   def __str__(self): return self.title
+  
+  def get_url_to(self, to: str): return reverse_lazy(to, kwargs={'pk': self.pk})
+  
+  def get_absolute_url(self): return self.get_url_to('bookDetail')
+  def get_edit_url(self): return self.get_url_to('editBook')
+  def get_delete_url(self): return self.get_url_to('deleteBook')
   
 class Author(models.Model):
   name = models.CharField(max_length=255)

@@ -1,0 +1,12 @@
+{% extends 'app/base.html' %}
+
+{% block content %}
+<div class="container">
+  <form method="post">
+    {% csrf_token %}
+    <p class="text-xxl">Are you sure you want to delete {{ book }}</p>
+    <input class="text-xl btn-hover" type="submit" value="Confirm" style="background-color: cornflowerblue; margin: 1rem 0 0 0; padding: 1rem; cursor: pointer; color: white; font-weight: 500;">
+  </form>
+</div>
+
+{% endblock content %}

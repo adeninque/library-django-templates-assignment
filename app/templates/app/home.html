@@ -19,8 +19,8 @@
       {% for book in books %}
         <div class="books__book book">
           <div class="book__img" style="background-image: url('{{ book.cover.url }}')"></div>
-          <div class="book__title text-md">{{ book.title }}</div>
-          <button class="book__detail btn-hover">Go Detail</button>
+          <div class="book__title ">{{ book.title }}</div>
+          <a href="{{ book.get_absolute_url }}" class="book__detail btn-hover">Go Detail</a>
         </div>
       {% endfor %}
 

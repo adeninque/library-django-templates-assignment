@@ -1,0 +1,56 @@
+.book__header {
+  display: grid;
+  grid-template-columns: 3fr 9fr;
+  gap: 1rem;
+}
+.book__img {
+  width: 100%;
+  background-position: 50% 50%;
+  background-size: cover;
+}
+.book__img::after {
+  content: "";
+  display: block;
+  padding: 75% 0;
+}
+.book__desc {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.book__authors {
+  margin: 0.5rem 0 0 0;
+}
+.book__options {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  margin: 1rem 0 0 0;
+  gap: 0.5rem;
+}
+.book__delete {
+  background-color: #ff2b07;
+}
+.book__option {
+  padding: 0.5rem;
+  width: 100%;
+  text-align: center;
+  transition: all 0.3s ease-in-out;
+  color: #ffffff;
+  font-weight: 500;
+}
+.book__option:hover {
+  background-color: #0D0C1D;
+  color: #ffffff;
+}
+.book__edit {
+  background-color: #e69d58;
+}
+.book__body {
+  margin: 1rem 0 0 0;
+}
+
+@media screen and (width < 440px) {
+  .book__header {
+    grid-template-columns: 1fr;
+  }
+}
